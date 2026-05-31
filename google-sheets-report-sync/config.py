@@ -1,0 +1,7 @@
+REQUIRED_COLUMNS = ("客戶", "金額")
+
+CLEANED_DATA_SHEET_NAME = "清理後資料"
+SUMMARY_SHEET_NAME = "統計報表"
+
+SUPPORTED_EXCEL_EXTENSIONS = (".xlsx", ".xlsm")
+SUPPORTED_CSV_EXTENSIONS = (".csv",)
