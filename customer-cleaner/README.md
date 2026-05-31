@@ -8,6 +8,38 @@
 
 Customer Cleaner 是一個客戶資料清洗工具，提供簡單 GUI，讓使用者選擇 Excel 或 CSV 檔案後，自動整理欄位名稱、清理電話格式、檢查 Email、排除問題資料並輸出乾淨名單。它適合展示資料清洗、名單整理與中小企業自動化能力。
 
+## 成果展示
+
+### 主畫面
+
+使用者可以透過簡單的 GUI 選擇 Excel 或 CSV 檔案，不需要操作命令列。
+
+![Customer Cleaner 主畫面](screenshots/main-screen.png)
+
+### 選擇檔案
+
+工具支援選擇 `.xlsx`、`.xlsm` 與 `.csv` 客戶資料檔。
+
+![Customer Cleaner 選擇檔案](screenshots/select-file.png)
+
+### 執行完成
+
+清洗完成後，畫面會顯示狀態與輸出檔案位置，方便使用者直接找到結果。
+
+![Customer Cleaner 執行完成](screenshots/completed.png)
+
+### 輸出結果
+
+輸出 Excel 會包含 `原始資料`、`清理後資料`、`問題資料` 三個工作表。
+
+![Customer Cleaner 輸出結果](screenshots/output-result.png)
+
+### 問題資料
+
+問題資料會集中列出 Email 錯誤、缺少姓名或缺少聯絡方式的資料，方便回頭修正。
+
+![Customer Cleaner 問題資料](screenshots/issue-data.png)
+
 ## 功能特色
 
 第一版聚焦最常見、最容易接案的客戶資料清洗需求：

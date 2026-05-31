@@ -41,7 +41,25 @@
 
 ### Customer Cleaner
 
-截圖待補：主畫面、選擇檔案、執行完成、清理後資料、問題資料。
+主畫面：使用者可以透過 GUI 選擇 Excel 或 CSV 客戶資料檔。
+
+![Customer Cleaner 主畫面](screenshots/customer-cleaner-main-screen.png)
+
+選擇檔案：支援從本機選擇客戶名單來源檔案。
+
+![Customer Cleaner 選擇檔案](screenshots/customer-cleaner-select-file.png)
+
+執行完成：工具會顯示完成狀態與輸出檔案位置。
+
+![Customer Cleaner 執行完成](screenshots/customer-cleaner-completed.png)
+
+輸出結果：產生包含 `原始資料`、`清理後資料`、`問題資料` 的 Excel。
+
+![Customer Cleaner 輸出結果](screenshots/customer-cleaner-output-result.png)
+
+問題資料：集中列出需要修正的客戶資料。
+
+![Customer Cleaner 問題資料](screenshots/customer-cleaner-issue-data.png)
 
 ## 已完成專案
 
@@ -77,7 +95,7 @@
 - 清理後資料
 - 客戶統計報表
 
-專案狀態：**v1.0 已完成**
+專案狀態：**Released v1.0**
 
 ### 2. Customer Cleaner 客戶資料清洗工具
 
@@ -104,7 +122,7 @@
 - 協助業務、行銷與行政團隊建立可用名單
 - 降低錯誤資料進入後續系統的風險
 
-專案狀態：**v1.0 已完成**
+專案狀態：**Released v1.0**
 
 ## 適合合作對象
 
