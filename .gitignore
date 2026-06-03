@@ -2,5 +2,9 @@ __pycache__/
 .pytest_cache/
 .codex_test_deps/
 output/
+outputs/
+build/
+dist/
+*.spec
 *.pyc
 ~$*.xlsx

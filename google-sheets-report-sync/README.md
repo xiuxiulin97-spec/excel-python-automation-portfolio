@@ -1,51 +1,194 @@
-# Google Sheets 自動同步報表
+# Google Sheets Report Sync
 
-目前版本：v1.0 開發中
+Google Sheets Report Sync 是一個 Python 桌面工具，用來把 Excel / CSV 的銷售資料清理後，自動同步到指定的 Google Sheets。
 
-這是作品集第三個專案，目標是建立一個 Python 桌面工具，讓使用者選擇 Excel / CSV，清理資料、產生統計報表，並同步到指定 Google Sheets。
+這個專案是作品集第三個自動化工具，定位是「Excel + Python + Google Sheets 自動化」。v1.0 重點是跑通完整流程：選擇檔案、清理資料、產生統計報表、OAuth 授權、寫入 Google Sheets。
 
-## 第一階段狀態
+## 商業價值
 
-目前已先完成本機資料處理基礎：
+許多中小企業會先用 Excel 或 CSV 收集銷售資料，再手動整理、加總、複製到 Google Sheets 與團隊共享。這個流程容易產生版本混亂、複製貼上錯誤，也會浪費行政與業務人員時間。
 
-- 建立專案結構
-- 支援 Excel / CSV 讀取
+本工具可以帶來的效益：
+
+- 將 Excel / CSV 整理流程改成按鈕式操作
+- 自動清除空白列與重複資料
+- 自動依客戶統計金額總和
+- 將清理後資料與統計報表同步到 Google Sheets
+- 減少人工複製貼上與公式錯誤
+- 讓非技術人員也能產生可共享的雲端報表
+
+## 使用案例
+
+### 每週銷售資料同步
+
+一家小型工作室每週會從內部系統匯出銷售 Excel，資料中可能包含空白列、重複資料與未整理的客戶金額資訊。
+
+使用 Google Sheets Report Sync 後，負責人只需要：
+
+1. 選擇 Excel / CSV 檔案
+2. 貼上 Google Sheet ID
+3. 按下「開始同步」
+
+工具會自動產生並同步：
+
+- 清理後資料
+- 統計報表
+
+這讓主管、業務與行政人員可以直接在 Google Sheets 查看最新報表。
+
+## v1.0 功能特色
+
+- 支援 Excel / CSV
 - Excel 固定讀取第一個工作表
 - 清除全空白列
 - 刪除完全重複資料
 - 檢查必要欄位：`客戶`、`金額`
-- 依 `客戶` 統計 `金額` 總和
-- 建立 Google Sheets batch update payload
+- 依照 `客戶` 統計 `金額` 總和
+- 使用者可輸入 Google Sheet ID
+- 寫入 Google Sheets 兩個工作表：`清理後資料`、`統計報表`
+- 使用 Google OAuth 本機授權流程
+- 建立簡單 tkinter GUI
+- 顯示同步成功或失敗訊息
 - 建立 pytest 測試
 
-Google Sheets OAuth 連線與真正寫入雲端表格會在下一階段加入。
+## 成果展示
 
-## 商業價值
+### 工具主畫面
 
-許多中小企業會先在本機 Excel / CSV 整理資料，再手動複製到 Google Sheets 與團隊共享。這個工具的目標是把清理、統計、同步流程串起來，減少人工貼上、版本混亂與欄位錯誤。
+![工具主畫面](screenshots/main-screen.png)
 
-適合場景：
+### 選擇 Excel / CSV 檔案
 
-- 每週業務報表同步
-- 客戶名單整理後同步到雲端
-- 遠端團隊共用營運報表
-- 行政或營運人員定期更新 Google Sheets
+![選擇檔案後畫面](screenshots/selected-file.png)
 
-## v1.0 功能範圍
+### 同步完成
 
-1. 支援選擇 Excel / CSV
-2. Excel 固定讀取第一個工作表
-3. 清除全空白列
-4. 刪除完全重複資料
-5. 檢查必要欄位：`客戶`、`金額`
-6. 依 `客戶` 統計 `金額` 總和
-7. 使用者輸入 Google Sheet ID
-8. 寫入 Google Sheets 兩個工作表：
-   - `清理後資料`
-   - `統計報表`
-9. 建立簡單 tkinter GUI
-10. 顯示同步成功或失敗訊息
-11. 建立 README、測試、Release Notes
+![同步完成畫面](screenshots/completed.png)
+
+### Google Sheets：清理後資料
+
+![Google Sheets 清理後資料](screenshots/google-sheets-result.png)
+
+### Google Sheets：統計報表
+
+![Google Sheets 統計報表](screenshots/google-sheets-summary-result.png)
+
+## 範例輸入格式
+
+至少需要包含以下欄位：
+
+| 客戶 | 金額 |
+| --- | ---: |
+| A公司 | 1000 |
+| A公司 | 3000 |
+| B公司 | 2000 |
+| C公司 | 1500 |
+
+專案內已提供範例檔：
+
+```text
+examples/sample_sales.xlsx
+```
+
+## 範例輸出說明
+
+同步成功後，Google Sheets 會建立或更新兩個工作表：
+
+```text
+清理後資料
+統計報表
+```
+
+`統計報表` 範例結果：
+
+| 客戶 | 金額總和 |
+| --- | ---: |
+| A公司 | 4000 |
+| B公司 | 2000 |
+| C公司 | 1500 |
+
+## 安裝方式
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+如果你的電腦使用 `py` 啟動 Python：
+
+```powershell
+py -m pip install -r requirements.txt
+```
+
+## Google Sheets API 設定
+
+v1.0 使用本機 OAuth 授權流程，需要：
+
+- `credentials.json`
+- `token.json`
+
+這兩個檔案包含授權資訊，不應上傳到 GitHub。本專案已在 `.gitignore` 排除：
+
+```text
+credentials.json
+token.json
+```
+
+### 建立 credentials.json
+
+1. 前往 Google Cloud Console。
+2. 建立或選擇專案。
+3. 啟用 Google Sheets API。
+4. 設定 OAuth 同意畫面。
+5. 建立 OAuth Client ID。
+6. Application type 選擇 Desktop app。
+7. 下載 JSON 檔。
+8. 將檔名改成 `credentials.json`。
+9. 放在專案根目錄：
+
+```text
+google-sheets-report-sync/credentials.json
+```
+
+### token.json 何時產生
+
+第一次執行同步時，程式會開啟 Google OAuth 授權頁面。授權成功後，會自動在專案根目錄產生：
+
+```text
+google-sheets-report-sync/token.json
+```
+
+## 執行方式
+
+請先確認 `credentials.json` 已放在專案根目錄。
+
+```powershell
+python main.py
+```
+
+操作流程：
+
+1. 按「選擇 Excel / CSV」。
+2. 選擇 `examples/sample_sales.xlsx` 或自己的資料檔。
+3. 貼上 Google Sheet ID。
+4. 按「開始同步」。
+5. 第一次執行時完成 Google OAuth 授權。
+6. 回到 Google Sheets 查看 `清理後資料` 與 `統計報表`。
+
+## 測試方式
+
+```powershell
+python -m pytest -q
+```
+
+測試涵蓋：
+
+- Excel / CSV 資料清理
+- 空白列清除
+- 重複資料刪除
+- 必要欄位檢查
+- 客戶金額統計
+- Google Sheets payload 格式
+- Google Sheets API 呼叫流程的單元測試
 
 ## 專案結構
 
@@ -59,45 +202,33 @@ google-sheets-report-sync/
 ├── config.py
 ├── requirements.txt
 ├── README.md
+├── RELEASE_NOTES_v1.0.md
+├── GITHUB_PUBLISH_CHECKLIST.md
 ├── .gitignore
 ├── examples/
 │   └── sample_sales.xlsx
 ├── screenshots/
-│   └── README.md
+│   ├── README.md
+│   ├── main-screen.png
+│   ├── selected-file.png
+│   ├── completed.png
+│   ├── google-sheets-result.png
+│   └── google-sheets-summary-result.png
 └── tests/
     ├── test_cleaner.py
     ├── test_report.py
     └── test_sheets_payload.py
 ```
 
-## 安裝方式
+## 發佈前安全檢查
 
-```powershell
-python -m pip install -r requirements.txt
-```
+上傳 GitHub 前請確認：
 
-## 執行方式
-
-第一階段 GUI 只顯示專案狀態，完整同步流程會在下一階段加入。
-
-```powershell
-python main.py
-```
-
-## 測試
-
-```powershell
-python -m pytest -q
-```
-
-## Google Sheets 憑證規則
-
-第一版會使用本機 OAuth：
-
-- `credentials.json`
-- `token.json`
-
-這兩個檔案包含授權資訊，不能上傳到 GitHub，已在 `.gitignore` 排除。
+- `credentials.json` 沒有被 Git 追蹤
+- `token.json` 沒有被 Git 追蹤
+- `output/` 沒有被 Git 追蹤
+- README 圖片路徑可正常顯示
+- `python -m pytest -q` 全部通過
 
 ## v1.0 不包含
 
@@ -108,3 +239,11 @@ python -m pytest -q
 - EXE 打包
 - 多帳號管理
 - CRM 串接
+
+## 未來規劃
+
+- 支援更彈性的欄位對應
+- 支援更多報表格式
+- 加入同步紀錄
+- 加入錯誤資料輸出
+- 未來作品集階段再加入 AI 摘要功能

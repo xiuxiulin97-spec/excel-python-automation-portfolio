@@ -2,23 +2,19 @@
 
 ## 我的定位
 
-我是 **Excel + Python + 自動化工具開發者**，專注於協助中小企業、個人工作室與營運團隊，把日常重複的 Excel、CSV、客戶資料與報表流程自動化。
+我是 **Excel + Python + 自動化工具開發者**，專注協助中小企業、個人工作室與營運團隊，把日常重複的 Excel、CSV、客戶資料與報表流程自動化。
 
-這個作品集展示的重點不是我學過哪些技術，而是我能用 Python、Excel 自動化與資料處理，解決哪些實際企業問題。AI 相關工具會在後續專案完成後再正式加入作品集定位。
+這個作品集展示的重點不是學習筆記，而是我能用可執行工具解決哪些實際工作問題。
 
 ## 我能解決的問題
-
-很多企業日常工作仍依賴人工整理表格、複製貼上、篩選資料、去除重複、製作報表。這些流程雖然看起來簡單，卻容易耗費大量時間，也容易出現人為錯誤。
-
-我目前聚焦解決以下問題：
 
 - Excel 資料整理耗時
 - 每週或每月報表需要重複製作
 - 客戶資料欄位混亂
 - 電話、Email 格式不一致
-- 重複資料影響後續分析
-- 非技術人員需要簡單可操作的工具
-- 小型團隊需要低成本的流程自動化
+- CSV / Excel 需要轉換與清理
+- 手動複製貼上容易出錯
+- 非技術人員需要按鈕式工具
 
 ## 可帶來的實際效益
 
@@ -26,86 +22,58 @@
 - 減少資料清理與報表製作時間
 - 降低手動複製貼上與公式錯誤
 - 讓非技術人員也能自行產生乾淨報表
+- 輸出可直接查看、篩選與交付的正式 Excel 報表
 
-## 成果預覽
+## 已完成作品
 
-### Excel 自動報表工具
+### 1. Excel Report Tool v2.1
 
-![Excel 自動報表工具主畫面](screenshots/excel-report-main-screen.png)
-
-![Excel 自動報表工具選擇檔案](screenshots/excel-report-select-file.png)
-
-![Excel 自動報表工具執行完成](screenshots/excel-report-completed.png)
-
-![Excel 自動報表工具輸出結果](screenshots/excel-report-output-result.png)
-
-### Customer Cleaner
-
-主畫面：使用者可以透過 GUI 選擇 Excel 或 CSV 客戶資料檔。
-
-![Customer Cleaner 主畫面](screenshots/customer-cleaner-main-screen.png)
-
-選擇檔案：支援從本機選擇客戶名單來源檔案。
-
-![Customer Cleaner 選擇檔案](screenshots/customer-cleaner-select-file.png)
-
-執行完成：工具會顯示完成狀態與輸出檔案位置。
-
-![Customer Cleaner 執行完成](screenshots/customer-cleaner-completed.png)
-
-輸出結果：產生包含 `原始資料`、`清理後資料`、`問題資料` 的 Excel。
-
-![Customer Cleaner 輸出結果](screenshots/customer-cleaner-output-result.png)
-
-問題資料：集中列出需要修正的客戶資料。
-
-![Customer Cleaner 問題資料](screenshots/customer-cleaner-issue-data.png)
-
-## 已完成專案
-
-### 1. Excel 自動報表工具
-
-一個可執行的 Excel 報表自動化工具，使用者選擇 Excel 檔案後，工具會自動清除空白列、刪除重複資料，並依照客戶統計金額總和。
-
-輸出結果包含：
-
-- 原始資料
-- 清理後資料
-- 統計報表
+通用 Excel / CSV 報表工具。使用者選擇檔案後，工具會讀取資料、清理空白列與重複資料，自動分析欄位類型，並讓使用者自行選擇分組欄位與統計欄位產生報表。
 
 適合場景：
 
 - 銷售資料整理
-- 訂單資料彙整
-- 客戶交易金額統計
+- 菜單 / 商品售價分析
+- 支出與台賬整理
+- 業務或代理人業績統計
 - 每月例行 Excel 報表產出
 
-商業價值：
+核心功能：
 
-- 減少人工整理 Excel 的時間
-- 降低手動計算錯誤
-- 讓非技術使用者也能透過 GUI 完成報表產出
-- 可作為中小企業內部報表自動化的雛形
+- 支援 Excel / CSV
+- Excel 固定讀取第一個工作表
+- 清除全空白列
+- 刪除重複資料
+- 自動分析文字、數字、日期欄位
+- 使用者自行選擇分組欄位、統計欄位、日期欄位
+- 產生原始資料、清理後資料、統計報表
+- 統計報表包含總覽、分組統計、月份統計、Top10 排行
+- 支援常見金額格式，例如 `元`、`￥`、`NT$`、逗號
 
-使用案例：每月銷售報表整理
+v2.1 報表美化：
 
-一家小型工作室每月收到銷售 Excel，資料包含重複資料、空白列與未整理資訊。使用本工具後，可以自動產生：
+- 自動調整欄寬
+- 標題列加粗與背景色
+- 明顯表格線
+- 凍結首列
+- 加入篩選器
+- 金額千分位格式
+- 日期格式統一為 `yyyy-mm-dd`
+- Top10 加入排名欄
+- 統計報表加入摘要區塊
+- 所有工作表使用一致樣式
 
-- 原始資料
-- 清理後資料
-- 客戶統計報表
+輸出結果：
 
-專案狀態：**Released v1.0**
+- `原始資料`
+- `清理後資料`
+- `統計報表`
 
-### 2. Customer Cleaner 客戶資料清洗工具
+專案狀態：**v2.1 Release Candidate**
 
-一個客戶名單清洗工具，支援 Excel / CSV，能自動統一欄位名稱、清理電話格式、檢查 Email、刪除重複客戶，並輸出乾淨資料與問題資料。
+### 2. Customer Cleaner v1.0
 
-輸出結果包含：
-
-- 原始資料
-- 清理後資料
-- 問題資料
+客戶資料清洗工具，支援 Excel / CSV，能統一欄位名稱、清理電話格式、檢查 Email、刪除重複客戶，並輸出乾淨資料與問題資料。
 
 適合場景：
 
@@ -113,20 +81,115 @@
 - 活動報名資料清洗
 - 電商客戶資料整理
 - CRM 匯入前資料檢查
-- Email 行銷名單前置清理
 
-商業價值：
+輸出結果：
 
-- 提升客戶資料品質
-- 減少人工檢查 Email 與電話格式的時間
-- 協助業務、行銷與行政團隊建立可用名單
-- 降低錯誤資料進入後續系統的風險
+- `原始資料`
+- `清理後資料`
+- `問題資料`
 
 專案狀態：**Released v1.0**
 
-## 適合合作對象
+### 3. Google Sheets Report Sync v1.0
 
-這個作品集特別適合以下對象參考：
+Google Sheets 同步報表工具，支援讀取 Excel / CSV，清理資料、產生統計報表，並透過 Google Sheets API 同步到指定 Google Sheet。
+
+適合場景：
+
+- 遠端團隊共用報表
+- 表單資料整理
+- 雲端資料同步
+- 多人協作資料統一
+
+專案狀態：**Released v1.0**
+
+## 成果預覽
+
+### Excel Report Tool v2.1
+
+v2.1 主畫面已補：
+
+![Excel Report Tool v2.1 主畫面](screenshots/excel-report-v21-main-screen.png)
+
+其餘 v2.1 流程截圖待補，預計包含：
+
+- 選擇 Excel / CSV
+- 欄位分析結果
+- 欄位選擇
+- 執行完成
+- 清理後資料
+- 統計報表
+- Top10 排名
+- 摘要區塊
+
+目前保留既有 v1.0 截圖作為舊版流程參考：
+
+![Excel 自動報表工具主畫面](screenshots/excel-report-main-screen.png)
+
+![Excel 自動報表工具執行完成](screenshots/excel-report-completed.png)
+
+![Excel 自動報表工具輸出結果](screenshots/excel-report-output-result.png)
+
+### Customer Cleaner
+
+![Customer Cleaner 主畫面](screenshots/customer-cleaner-main-screen.png)
+
+![Customer Cleaner 選擇檔案](screenshots/customer-cleaner-select-file.png)
+
+![Customer Cleaner 執行完成](screenshots/customer-cleaner-completed.png)
+
+![Customer Cleaner 輸出結果](screenshots/customer-cleaner-output-result.png)
+
+## 安裝方式
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+## 執行方式
+
+Excel Report Tool：
+
+```powershell
+python main.py
+```
+
+Customer Cleaner：
+
+```powershell
+cd customer-cleaner
+python main.py
+```
+
+Google Sheets Report Sync：
+
+```powershell
+cd google-sheets-report-sync
+python main.py
+```
+
+## 測試方式
+
+```powershell
+python -m pytest -q
+```
+
+## EXE 版本
+
+Excel Report Tool v2.1 已可使用 PyInstaller 產生 Windows EXE：
+
+```text
+dist/ExcelReportTool.exe
+```
+
+目前狀態為 v2.1 Release Candidate，正式發布前仍建議補齊流程截圖與真實資料驗收。
+
+打包流程請參考：
+
+- `BUILD_EXE.md`
+- `RELEASE_PLAN_v2.1.md`
+
+## 適合合作對象
 
 - 中小企業老闆
 - 個人工作室
@@ -135,63 +198,25 @@
 - 行政與財務人員
 - 顧問、課程與服務型團隊
 - 需要定期整理 Excel / CSV 的組織
-- 尋找 Python 自動化能力的面試主管或技術主管
 
 ## 我提供的價值
 
-我擅長把「每天都在做、但不一定需要人工做」的工作轉成簡單工具。
+我擅長把「每天都在做、但不一定需要人工做」的表格流程轉成簡單工具。
 
-合作或專案開發可以從小範圍開始，例如：
+可協助的工作包括：
 
-- 整理一份固定格式的 Excel
-- 自動產生一份月報
-- 清理一批客戶資料
-- 找出資料中的錯誤與重複
-- 將人工流程轉成按鈕式工具
+- Excel 自動報表
+- Excel / CSV 資料清理
+- 客戶資料清洗
+- Google Sheets 同步
+- 小型內部工具開發
 
-我的目標是先交付可執行版本，再逐步優化功能，而不是一開始就建立過度複雜的系統。
+## 未來規劃
 
-## 技術方向
+下一階段會優先完成：
 
-目前作品集主要使用：
+- Excel Report Tool v2.1 正式 Release
+- v2.1 EXE 客戶交付版本
+- AI Customer Feedback Analyzer
 
-- Python
-- pandas
-- openpyxl
-- tkinter
-- pytest
-- Excel / CSV 資料處理
-
-技術只是手段，核心目標是讓資料整理、報表產出與日常流程更快、更穩定、更容易交付。
-
-## 未來作品集規劃
-
-接下來會依照實務價值逐步完成：
-
-### 3. Google Sheets 自動同步報表
-
-目標是支援雲端試算表資料處理，將 Google Sheets 中的資料自動整理、統計並回寫結果，適合遠端團隊與多人協作情境。
-
-預計解決：
-
-- 表單資料整理
-- 雲端報表同步
-- 多人共用資料表的自動清理
-- 定期更新統計結果
-
-### 4. AI 客戶回饋摘要工具
-
-目標是讀取 Excel / CSV 中的大量文字回饋，使用 AI 協助分類、摘要與整理待處理重點。
-
-預計解決：
-
-- 客戶回饋量太大，人工閱讀耗時
-- 不容易快速看出常見問題
-- 客訴、建議、正面回饋需要分類
-- 團隊需要可追蹤的改善重點
-
-## 作品集目標
-
-這個 repository 會持續累積能展示、能執行、能接案的自動化工具。
-
-目前方向是建立一套完整的 **Excel + Python 自動化工具作品集**，能協助中小企業把重複性資料工作轉成穩定、可操作、可擴充的工具流程。待 AI 客戶回饋摘要工具完成後，再升級為 **AI + Excel + Python 自動化工具作品集**。
+AI 功能會等實際 AI 專案完成後，再正式升級作品集定位。

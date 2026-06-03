@@ -5,3 +5,7 @@ SUMMARY_SHEET_NAME = "統計報表"
 
 SUPPORTED_EXCEL_EXTENSIONS = (".xlsx", ".xlsm")
 SUPPORTED_CSV_EXTENSIONS = (".csv",)
+
+SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
+CREDENTIALS_FILE = "credentials.json"
+TOKEN_FILE = "token.json"
