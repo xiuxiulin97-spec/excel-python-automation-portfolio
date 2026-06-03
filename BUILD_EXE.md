@@ -55,10 +55,11 @@ tkinter installation is broken. It will be excluded from the application
 $py = "C:\Users\你的帳號\AppData\Local\Programs\Python\Python312"
 ```
 
-本專案這次實測可用的完整打包方式如下：
+本專案實測可用的完整打包方式如下。
+請把 `$py` 改成你自己電腦的 Python 安裝路徑：
 
 ```powershell
-$py = "C:\Users\62516\.cache\codex-runtimes\codex-primary-runtime\dependencies\python"
+$py = "C:\Path\To\Python"
 
 python -m PyInstaller `
   --noconfirm `
